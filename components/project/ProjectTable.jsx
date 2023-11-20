@@ -14,10 +14,19 @@ import {
 } from "@/components/ui/dialog";
 
 export default function ProjectTable({ data_data }) {
-  let i = 1;
+  let l = 1;
 
-  function isEvaluat({ is_evaluate }) {
-    return is_evaluate === false;
+  const isEvaluat = () => {
+    const is_evaluate = data_data.map((data) => data.status);
+    if(is_evaluate === 1){
+      return "bg-green-500 border-green-500 text-white";
+    }
+    else{
+      return "bg-red-500 border-red-500 text-white";
+    }
+    console.log(is_evaluate);
+    
+    
   }
 
   return (
@@ -57,9 +66,7 @@ export default function ProjectTable({ data_data }) {
                 <td className="px-5 py-4">
                   <p
                     className={`p-1 border-2 rounded-lg ${
-                      isEvaluat({ is_evaluate: true })
-                        ? "bg-red-100 border-2 border-red-500"
-                        : "bg-green-100 border-2 border-green-500"
+                      isEvaluat(row.status) === 1 ? 'bg-green-200 border-2 border-green-600':'bg-red-200 border-2 border-red-600'
                     }`}
                   >
                     Completed
@@ -99,16 +106,15 @@ export default function ProjectTable({ data_data }) {
                         </DialogDescription>
                         <DialogDescription className="flex">
                           <p className=" w-1/2">Type</p>&nbsp;
-                          {row.eve_project_type}
+                          {row.type}
                         </DialogDescription>
                         <DialogDescription>
-                          {row.member.map((member) => (
-                            <p key={member.id} className="flex">
-                              <p className=" my-[3px] w-1/2">Member {i++}</p>
+                          {row.member.map((members) => (
+                            <p key={members.id} className="flex">
+                              <p className=" my-[3px] w-1/2">Member {l++}</p>
                               &nbsp;
-                              <p className="my-[3px]">{member.name_latin}</p>
-                            </p>
-                          ))}
+                              {members.name}              
+                            </p>))}
                         </DialogDescription>
                       </DialogHeader>
                     </DialogContent>

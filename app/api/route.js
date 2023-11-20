@@ -38,7 +38,7 @@ export async function GET() {
       type: e.eve_project_type,
       supervisor: e.eve_project_supervisor_name,
       leader: e.eve_project_members[0],
-      member: e.eve_project_members.slice(1).map((item) => ({
+      member: e.eve_project_members.slice().map((item) => ({
         name: item.name_latin,
         gender: item.sys_gender.name_latin,
       })),
