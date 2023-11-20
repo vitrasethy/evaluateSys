@@ -16,8 +16,6 @@ import {
 export default function ProjectTable({ data_data }) {
   let l = 1;
 
-  
-
   return (
     <div className="">
       <div className="flex justify-center ">
@@ -48,20 +46,24 @@ export default function ProjectTable({ data_data }) {
                 <td className="px-5 py-4  ">{row.no}</td>
                 <td className="px-5 py-4  ">{row.id}</td>
                 <td className="px-5 py-4  ">{row.name}</td>
-                <td className="px-5 py-4  ">
-                  {row.leader.name_latin}
-                </td>
+                <td className="px-5 py-4  ">{row.leader.name_latin}</td>
                 <td className="px-5 py-4  ">{row.total_score}</td>
                 <td className="px-5 py-4">
                   <p
                     className={`p-1 border-2 rounded-lg ${
-                      (row.status) === 1 ? 'bg-green-200 border-2 border-green-600':''
+                      row.status === 1
+                        ? "bg-green-200 border-2 border-green-600"
+                        : ""
                     }
                     ${
-                      (row.status) === 0 ? 'bg-red-200 border-2 border-red-600':''
+                      row.status === 0
+                        ? "bg-red-200 border-2 border-red-600"
+                        : ""
                     }
                     ${
-                      (row.status) === 2 ? 'bg-yellow-200 border-2 border-yellow-600':''
+                      row.status === 2
+                        ? "bg-yellow-200 border-2 border-yellow-600"
+                        : ""
                     }`}
                   >
                     Completed
@@ -96,21 +98,31 @@ export default function ProjectTable({ data_data }) {
                           {row.leader.name_latin}
                         </DialogDescription>
                         <DialogDescription className="flex">
-                          <p className=" w-1/2">Judge</p>&nbsp;
-                          {row.committee[0].name}
-                        </DialogDescription>
-                        <DialogDescription className="flex">
                           <p className=" w-1/2">Type</p>&nbsp;
                           {row.type}
-                          
                         </DialogDescription>
                         <DialogDescription>
-                          {row.member.map((members) => (
-                            <p key={members.id} className="flex">
-                              <p className=" my-[3px] w-1/2">Member {l++}</p>
+                        {row.committee.map((committee, index) => (
+                            <p key={committee.id} className="flex">
+                              <p className="my-[3px] w-1/2">
+                                {index === 0 ? "Judge" : ""}
+                              </p>
                               &nbsp;
-                              {members.name}              
-                            </p>))}
+                              <p className=" my-[3px]">{committee.name}</p>
+                            </p>
+                          ))}
+                        </DialogDescription>
+                        
+                        <DialogDescription>
+                          {row.member.map((members, index) => (
+                            <p key={members.id} className="flex">
+                              <p className="my-[3px] w-1/2">
+                                {index === 0 ? "Member" : ""}
+                              </p>
+                              &nbsp;
+                              <p className=" my-[3px]">{members.name}</p>
+                            </p>
+                          ))}
                         </DialogDescription>
                       </DialogHeader>
                     </DialogContent>
