@@ -16,18 +16,7 @@ import {
 export default function ProjectTable({ data_data }) {
   let l = 1;
 
-  const isEvaluat = () => {
-    const is_evaluate = data_data.map((data) => data.status);
-    if(is_evaluate === 1){
-      return "bg-green-500 border-green-500 text-white";
-    }
-    else{
-      return "bg-red-500 border-red-500 text-white";
-    }
-    console.log(is_evaluate);
-    
-    
-  }
+  
 
   return (
     <div className="">
@@ -66,7 +55,13 @@ export default function ProjectTable({ data_data }) {
                 <td className="px-5 py-4">
                   <p
                     className={`p-1 border-2 rounded-lg ${
-                      isEvaluat(row.status) === 1 ? 'bg-green-200 border-2 border-green-600':'bg-red-200 border-2 border-red-600'
+                      (row.status) === 1 ? 'bg-green-200 border-2 border-green-600':''
+                    }
+                    ${
+                      (row.status) === 0 ? 'bg-red-200 border-2 border-red-600':''
+                    }
+                    ${
+                      (row.status) === 2 ? 'bg-yellow-200 border-2 border-yellow-600':''
                     }`}
                   >
                     Completed
@@ -107,6 +102,7 @@ export default function ProjectTable({ data_data }) {
                         <DialogDescription className="flex">
                           <p className=" w-1/2">Type</p>&nbsp;
                           {row.type}
+                          
                         </DialogDescription>
                         <DialogDescription>
                           {row.member.map((members) => (
