@@ -52,7 +52,7 @@ export default function ProjectTable({ data_data }) {
                 <td className="px-5 py-4  ">{row.total_score}</td>
                 <td className="px-5 py-4">
                   <p
-                    className={`p-1 border-2 rounded-lg ${
+                    className={`p-1 border-2 rounded-lg text-center ${
                       (row.status) === 1 ? 'bg-green-200 border-2 border-green-600':''
                     }
                     ${
