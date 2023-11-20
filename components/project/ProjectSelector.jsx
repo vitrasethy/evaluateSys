@@ -34,10 +34,12 @@ export default function ProjectSelector() {
   useEffect(() => {
     // Filter the data whenever 'type' changes
     const newFilteredData = data.filter(
-      (item) => item.eve_project_type === type,
+      (item) => item.type === type,
     );
     setFilteredData(newFilteredData);
   }, [type, data]); // Include 'data' in the dependency array
+
+  console.log(JSON.stringify(data))
 
   return (
     <div>
