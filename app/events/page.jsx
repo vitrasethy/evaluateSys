@@ -1,10 +1,6 @@
 import Link from "next/link";
 import getEvents from "@/components/event/getEvents";
-import { cookies } from 'next/headers'
-
-async function cookie(eventId) {
-    cookies().set('event_id', eventId)
-}
+import { cookies } from "next/headers";
 
 export default async function Page() {
   const data = await getEvents();
@@ -25,7 +21,7 @@ export default async function Page() {
             className="text-white w-11/12 sm:bg-[url('/bgcol.png')] bg-[url('/home.png')] bg-no-repeat bg-cover shadow-xl lg:w-2/5 border-px border-slate-50 bg-gray-100  rounded-2xl  mx-6 mb-6 hover:duration-300 hover:scale-105 hover:shadow-md hover:shadow-sky-700"
             key={data.id}
           >
-            <Link onClick={cookie(data.id)} href={"/events/dept-year"}>
+            <Link href={`/events/${data.id}`}>
               <div className="bg-sky-950/90 backdrop-brightness-75 rounded-2xl px-4 py-6">
                 <div className="mb-4">
                   <div className="flex justify-between items-center max-sm:hidden">

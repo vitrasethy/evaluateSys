@@ -3,7 +3,7 @@ import getDepart from "@/components/department/getDepart";
 import SelectPC from "@/components/department/SelectPC";
 import { cookies } from "next/headers";
 
-export default async function SearchDepYear() {
+export default async function SearchDepYear({eventId}) {
   const departments = await getDepart();
 
   async function action(formData) {
@@ -12,6 +12,7 @@ export default async function SearchDepYear() {
     const departmentId = formData.get("department")?.toString();
     const yearId = formData.get("year")?.toString();
 
+    cookies().set("event_id", eventId)
     cookies().set("dept_id", departmentId);
     cookies().set("year_id", yearId);
 

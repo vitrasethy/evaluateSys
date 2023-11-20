@@ -1,6 +1,8 @@
 import SearchDepYear from "@/components/department/SearchDepYear";
 
-export default function Page() {
+export default async function Page({params}) {
+
+
   return (
     <div>
       <div className={"flex flex-col items-center justify-center my-10"}>
@@ -12,7 +14,7 @@ export default function Page() {
         </p>
       </div>
 
-      <SearchDepYear />
+      <SearchDepYear eventId={params.deptyear} />
     </div>
   );
 }

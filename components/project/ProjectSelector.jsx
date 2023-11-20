@@ -23,7 +23,7 @@ export default function ProjectSelector() {
         const result = await response.json();
         setData(result);
       } catch (error) {
-        throw new Error("Network response was not ok");
+        throw new Error(error);
       }
     };
 
