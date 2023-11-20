@@ -49,22 +49,24 @@ export default function ProjectTable({ data_data }) {
                 <td className="px-5 py-4  ">{row.id}</td>
                 <td className="px-5 py-4  ">{row.name}</td>
                 <td className="px-5 py-4  ">
-                  {row.leader.name_latin}
+                  {row.leader?.name_latin}
                 </td>
                 <td className="px-5 py-4  ">{row.total_score}</td>
                 <td className="px-5 py-4">
                   <p
-                    className={`p-1 border-2 rounded-lg ${
-                      (row.status) === 1 ? 'bg-green-200 border-2 border-green-600':''
+                    className={`p-1 border-2 rounded-lg text-center ${
+                      (row.status) === 1 ? 'bg-green-100 border-2 border-green-500':''
                     }
                     ${
-                      (row.status) === 0 ? 'bg-red-200 border-2 border-red-600':''
+                      (row.status) === 0 ? 'bg-red-100 border-2 border-red-500':''
                     }
                     ${
-                      (row.status) === 2 ? 'bg-yellow-200 border-2 border-yellow-600':''
+                      (row.status) === 2 ? 'bg-yellow-100 border-2 border-yellow-500':''
                     }`}
                   >
-                    Completed
+                    {row.status === 1 ? "Completed" : ""}
+                    {row.status === 0 ? "Not yet Evaluate" : ""}
+                    {row.status === 2 ? "Partially Evaluated" : ""}
                   </p>
                 </td>
 
