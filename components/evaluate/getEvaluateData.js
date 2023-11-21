@@ -5,8 +5,10 @@ export default async function getEvaluateData() {
   const token = cookieStore.get("access_token");
   const eventId = cookies().get("event_id");
 
+  console.log(eventId)
+
   const res = await fetch(
-    `https://admin.rupp.support/api/v1/events/${eventId}/evaluation-forms`,
+    `https://admin.rupp.support/api/v1/events/${eventId.value}/evaluation-forms`,
     {
       method: "GET",
       headers: {

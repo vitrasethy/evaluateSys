@@ -1,7 +1,6 @@
 "use client";
 import Image from "next/image";
 import * as React from "react";
-import Link from "next/link";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -12,9 +11,9 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
+import action from "@/components/project/action";
 
 export default function ProjectTable({ data_data }) {
-  let l = 1;
 
   return (
     <div className="">
@@ -63,13 +62,16 @@ export default function ProjectTable({ data_data }) {
                     }`}
                   >
                     {row.status === 1 ? "Completed" : ""}
-                    {row.status === 0 ? "Not yet Evaluate" : ""}
+                    {row.status === 0 ? "Not Yet Evaluate" : ""}
                     {row.status === 2 ? "Partially Evaluated" : ""}
                   </p>
                 </td>
 
                 <td className="px-5 py-4  ">
-                  <Link href={"/home/1/projects/evaluate"}>Evaluate</Link>
+                  <form action={action}>
+                    <input type={"hidden"} name={"projectId"} value={row.project_id}/>
+                    <button>Evaluate</button>
+                  </form>
                 </td>
                 <td className="px-5 py-4  ">
                   <Dialog>
