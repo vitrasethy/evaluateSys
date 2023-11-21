@@ -62,9 +62,9 @@ export default function ProjectTable({ data_data }) {
             </tr>
           </thead>
           <tbody>
-            {data_data.map((row) => (
+            {data_data.map((row, id) => (
               <tr key={row.no} className={`table-row rounded-xl`}>
-                <td className="px-5 py-4  ">{row.no}</td>
+                <td className="px-5 py-4  ">{id+1}</td>
                 <td className="px-5 py-4  ">{row.id}</td>
                 <td className="px-5 py-4  ">{row.name}</td>
                 <td className="px-5 py-4  ">
