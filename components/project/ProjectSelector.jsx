@@ -39,8 +39,6 @@ export default function ProjectSelector() {
     setFilteredData(newFilteredData);
   }, [type, data]); // Include 'data' in the dependency array
 
-  console.log(JSON.stringify(data))
-
   return (
     <div>
       <div className="flex justify-between sm:justify-center mx-5">

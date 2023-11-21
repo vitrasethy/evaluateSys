@@ -12,9 +12,30 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import action from "@/components/project/action";
+import {useEffect, useState} from "react";
+
+
 
 export default function ProjectTable({ data_data }) {
-  console.log(data_data);
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    // Simulate data fetching
+    const fetchData = async () => {
+      try {
+        const response = await fetch("/api/admin");
+        const result = await response.json();
+        setData(result);
+      } catch (error) {
+        throw new Error(error);
+      }
+    };
+
+    // Call the fetchData function when the component mounts
+    fetchData();
+  }, []);
+
+  const isAdmin = data.is_admin
 
   return (
     <div className="">
@@ -71,7 +92,8 @@ export default function ProjectTable({ data_data }) {
                 <td className="px-5 py-4  ">
                   <form action={action}>
                     <input type={"hidden"} name={"projectId"} value={row.project_id}/>
-                    <button>Evaluate</button>
+                    <button className={(row.status === 1 || isAdmin) ? "hidden" : ""}>Evaluate</button>
+                    <button formAction={action} className={(row.status === 0 || isAdmin) ? "hidden" : ""}>Edit Evaluate</button>
                   </form>
                 </td>
                 <td className="px-5 py-4  ">

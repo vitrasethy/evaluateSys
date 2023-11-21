@@ -13,7 +13,7 @@ export default async function Navbar() {
       <div>
         <div className="Desktop text-white h-20 justify-between items-center hidden md:flex mx-5">
           <div>
-            <Link href="/events">
+            <Link href={"/events"}>
               <Image src="/logoFE.webp" alt="" width={50} height={50} />
             </Link>
           </div>
@@ -35,12 +35,11 @@ export default async function Navbar() {
           </div>
         </div>
         <div className="Mobile text-white flex h-20 items-center ml-5 justify-between md:hidden transition duration-200 z-50">
-          <Link href="/events">
+          <Link href={"/events"}>
             <Image src="/logoFE.webp" alt="" width={50} height={50} />
           </Link>
 
           <Hamburger isAdmin={isAdmin} />
-
         </div>
       </div>
     </div>
