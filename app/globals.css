@@ -45,3 +45,14 @@
     background-color: #EEEEEE;
   }
 }
+.show-hide-content {
+  transition: opacity 2s ease, height 2s ease;
+  opacity: 0;
+  height: 0;
+  overflow: hidden;
+}
+
+.show-hide-content.show {
+  opacity: 1;
+  height: auto;
+}

@@ -14,6 +14,7 @@ import {
 import action from "@/components/project/action";
 
 export default function ProjectTable({ data_data }) {
+  console.log(data_data);
 
   return (
     <div className="">
