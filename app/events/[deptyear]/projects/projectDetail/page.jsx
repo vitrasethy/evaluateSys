@@ -1,7 +1,7 @@
 "use client";
 import React, { useEffect, useState } from "react";
 
-export default function ProjectTable({}) {
+export default function ProjectTable({ }) {
   const [data, setData] = useState([]);
   const [filteredData, setFilteredData] = useState([]);
   const [type, setType] = useState("Presentation");
@@ -38,13 +38,100 @@ export default function ProjectTable({}) {
 
   console.log(data);
   return (
-    <div>
+    <div className=" flex flex-col justify-center items-center">
       <h1 className="text-center font-extrabold text-5xl my-10">
         Projects Detail
       </h1>
       {data.map((data) => (
-        <p key={data.no} className="px-10 py-5 text-lg border-2">
-          <div className="flex">
+        <p key={data.no} className="px-10 py-5 text-lg border-2 w-[70%] ">
+          <div className="bg-gray-200 p-2 rounded-md mt-2">
+            <p className="text-sm text-gray-500">Project Name</p>
+            <p>{data.name}</p>
+          </div>
+          <div className="bg-gray-200 p-2 rounded-md mt-2">
+            <p className="text-sm text-gray-500">Project ID</p>
+            <p>{data.id}</p>
+          </div>
+          <div className="bg-gray-200 p-2 rounded-md mt-2">
+            <p className="text-sm text-gray-500">Project Leader</p>
+            <p>{data.leader.name_latin}</p>
+          </div>
+          <div className="bg-gray-200 p-2 rounded-md mt-2">
+          {data.member.map((members, index) => (
+                            <p key={members.id}>
+                              <p className="text-sm text-gray-500">
+                                {index === 0 ? "Member" : ""}
+                              </p>
+                             
+                              <li>{members.name}</li>
+                            </p>
+                          ))}
+          </div>
+         
+          <div className="bg-gray-200 p-2 rounded-md mt-2">
+          {data.committee.map((committee, index) => (
+            <p
+              key={committee.id}
+              onClick={() => handleClick(committee.id)}
+            >
+              <p className="text-sm text-gray-500">
+                {index === 0 ? "Judge" : ""}
+              </p>
+            
+              <p>
+                <p className="border-2 border-gray-300 w-auto bg-gray-300 my-1 rounded-md p-2">
+                {committee.name}
+                </p>
+                <div>
+                  {shownCommitteeMember === committee.id && (
+                    <div className="border border-gray-300 rounded-md px-10 py-5">
+                      <div className="my-5 border-2 border-gray-300 flex justify-between py-1 px-5 rounded-lg bg-gray-200 items-center">
+                        <h1>Introduction / Background / literature (clear)</h1>
+                        <p className="border border-black rounded-full px-2 ml-5 py-[3px]">10</p>
+                      </div>
+                      <div className="my-5 border-2 border-gray-300 flex justify-between py-1 px-5 rounded-lg bg-gray-200 items-center">
+                        <h1>Objective clearly stated & concise</h1>
+                        <p className="border border-black rounded-full px-2 ml-5 py-[3px]">10</p>
+                      </div>
+                      <div className="my-5 border-2 border-gray-300 flex justify-between py-1 px-5 rounded-lg bg-gray-200 items-center">
+                        <h1>Approach / methodd / study design / Materials (new, clear & concise)</h1>
+                        <p className="border border-black rounded-full px-2 ml-5 py-[3px]">10</p>
+                      </div>
+                      <div className="my-5 border-2 border-gray-300 flex justify-between py-1 px-5 rounded-lg bg-gray-200 items-center">
+                        <h1>Novel approach / method / study design / Materials</h1>
+                        <p className="border border-black rounded-full px-2 ml-5 py-[3px]">10</p>
+                      </div>
+                      <div className="my-5 border-2 border-gray-300 flex justify-between py-1 px-5 rounded-lg bg-gray-200 items-center">
+                        <h1>Analysis and Interpretation</h1>
+                        <p className="border border-black rounded-full px-2 ml-5 py-[3px]">10</p>
+                      </div>
+                      <div className="my-5 border-2 border-gray-300 flex justify-between py-1 px-5 rounded-lg bg-gray-200 items-center">
+                        <h1>Demonstrate signi</h1>
+                        <p className="border border-black rounded-full px-2 ml-5 py-[3px]">10</p>
+                      </div>
+                      <div className="my-5 border-2 border-gray-300 flex justify-between py-1 px-5 rounded-lg bg-gray-200 items-center">
+                        <h1>Introduction / Background / literature (clear)</h1>
+                        <p className="border border-black rounded-full px-2 ml-5 py-[3px]">10</p>
+                      </div>
+
+                    </div>
+                  )}
+                </div>
+              </p>
+            </p>
+          ))}
+          </div>
+          
+
+
+
+
+
+
+
+
+
+          {/* <div className="flex">
             <p className="w-1/2 font-medium">Name</p> &nbsp;{" "}
             <p className="text-start">{data.name}</p>
           </div>
@@ -100,7 +187,7 @@ export default function ProjectTable({}) {
                         <h1>Introduction / Background / literature (clear)</h1>
                         <p className="border border-black rounded-full px-2 ml-5 py-[3px]">10</p>
                       </div>
-                      
+
                     </div>
                   )}
                 </div>
@@ -115,8 +202,8 @@ export default function ProjectTable({}) {
               &nbsp;
               <p className=" my-[3px]">{member.name}</p>
             </p>
-          ))}
-          
+          ))} */}
+
         </p>
       ))}
     </div>
