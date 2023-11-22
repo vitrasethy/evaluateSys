@@ -21,7 +21,7 @@ export default function ProjectTable({ }) {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch("/api");
+        const response = await fetch("/api/detail");
         const result = await response.json();
         setData(result);
       } catch (error) {
