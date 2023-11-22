@@ -32,18 +32,35 @@ export default function ProjectTable({}) {
 
     fetchData();
   }, []);
-  useEffect(() => {
-    const newFilteredData = data.filter((item) => item.type === type);
-    setFilteredData(newFilteredData);
-  }, [type, data]);
 
-  console.log(data);
+  const datas = data.committees;
+  console.log(datas);
   return (
     <div className=" flex flex-col justify-center items-center">
       <h1 className="text-center font-extrabold text-5xl my-10">
         Projects Detail
       </h1>
-      {data.map((data) => (
+      <p>{
+        datas?.map((datass) => (
+          <div key={datass.no}>
+            <p className="text-center font-extrabold text-3xl my-10">
+              {datass.projects?.map((project) => (
+                <p key={project.id}>{project.id}</p>
+              ))}
+            </p>
+          </div>
+        ))
+      }</p>
+
+
+
+
+
+
+
+
+
+      {/* {data.map((data) => (
         <p key={data.no} className="px-10 py-5 text-lg border-2 w-[60%] ">
           <div className="bg-gray-200 p-2 rounded-md mt-2">
             <p className="text-sm text-gray-500 uppercase">Project Name</p>
@@ -154,7 +171,7 @@ export default function ProjectTable({}) {
 
 
         </p>
-      ))}
+      ))} */}
     </div>
   );
 }
