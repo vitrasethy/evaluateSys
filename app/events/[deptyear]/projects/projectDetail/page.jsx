@@ -45,7 +45,19 @@ export default function ProjectTable({}) {
           <div key={datass.no}>
             <p className="text-center font-extrabold text-3xl my-10">
               {datass.projects?.map((project) => (
-                <p key={project.id}>{project.id}</p>
+                <p key={project.id}>
+                  <p>
+                    {project.code}
+                  </p>
+                  <p>
+                    {project.name}
+                  </p>
+                  <p>
+                    {project.total_score}
+                  </p>
+                  
+                </p>
+                
               ))}
             </p>
           </div>
