@@ -47,7 +47,7 @@ function HtmlToImageToPdf() {
                     <div className="text-[13pt] text-center font-['serif']">
                     <p className="">in recognition for winning the</p>
                     <p className="">1st Award for top project</p>
-                    <p className="">entitled "Aleo Vera: Production & Processing"</p>
+                    <p className="">entitled &quot;Aleo Vera: Production & Processing&quot;</p>
                     </div>
                 </div>
                 <div className="flex flex-col justify-center items-center gap-1">
@@ -59,7 +59,7 @@ function HtmlToImageToPdf() {
                     <div className="font-[KhmerOSSiemreap] text-[12pt] text-center">
                     <p className="">ដែលទទួលបានជ័យលាភី</p>
                     <p className="">គម្រោងឆ្នើមលេខ ១ </p>
-                    <p className="">ក្រោមប្រធាមបទ <span className="font-['Times New Roman'] text-[13pt]">"Aleo Vera: Production & Processing"</span></p>
+                    <p className="">ក្រោមប្រធាមបទ <span className="font-['Times New Roman'] text-[13pt]">&quot;Aleo Vera: Production & Processing&quot;</span></p>
                 </div>
                     </div>
             </div>
