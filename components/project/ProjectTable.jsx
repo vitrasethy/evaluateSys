@@ -73,7 +73,7 @@ export default function ProjectTable({ data_data }) {
                 <td className="px-5 py-4  ">{row.total_score}</td>
                 <td className="px-5 py-4">
                   <p
-                    className={`p-1 border-2 rounded-lg text-center ${
+                    className={`p-1 border-2 rounded-lg w-fit ${
                       (row.status) === 1 ? 'bg-green-200 border-2 border-green-600':''
                     }
                     ${
@@ -156,42 +156,39 @@ export default function ProjectTable({ data_data }) {
           </tbody>
         </table>
 
-        {/*<div className="lg:hidden">*/}
-        {/*  {data_data.map((data) => (*/}
-        {/*    <div*/}
-        {/*      className="w-screen sm:w-[500px] flex justify-center"*/}
-        {/*      key={data.id}*/}
-        {/*    >*/}
-        {/*      <div className="mt-8 rounded-lg border bg-card text-card-foreground shadow-sm w-full mx-5">*/}
-        {/*        <div className="flex flex-col space-y-1.5 p-6">*/}
-        {/*          <h1 className="text-2xl font-semibold leading-none tracking-tight">*/}
-        {/*            {data.eve_project_topic}*/}
-        {/*          </h1>*/}
-        {/*          <p className="text-sm text-muted-foreground">*/}
-        {/*            ID: {data.eve_project_code}*/}
-        {/*          </p>*/}
-        {/*          <p className="text-sm text-muted-foreground">*/}
-        {/*            Leader: {data.eve_project_members[0].name_latin}*/}
-        {/*          </p>*/}
-        {/*          <p className="text-sm text-muted-foreground">*/}
-        {/*            Judge: 4 Evaluators*/}
-        {/*          </p>*/}
-        {/*          <p className="text-sm text-muted-foreground">*/}
-        {/*            Score: 60 Points*/}
-        {/*          </p>*/}
-        {/*        </div>*/}
-        {/*        <div className="items-center p-6 pt-0 flex justify-between">*/}
-        {/*          <button className="px-4 py-2 text-center bg-[#014164] hover:bg-[#014190] text-white font-medium rounded-md text-sm">*/}
-        {/*            Evaluate*/}
-        {/*          </button>*/}
-        {/*          <button className="px-4 py-2 text-center bg-[#014164] hover:bg-[#014190] text-white font-medium rounded-md text-sm">*/}
-        {/*            Edit Evaluation*/}
-        {/*          </button>*/}
-        {/*        </div>*/}
-        {/*      </div>*/}
-        {/*    </div>*/}
-        {/*  ))}*/}
-        {/*</div>*/}
+        <div className="lg:hidden">
+          {data_data.map((data) => (
+            <div
+              className="w-screen sm:w-[500px] flex justify-center"
+              key={data.id}
+            >
+              <div className="mt-8 rounded-lg border bg-card text-card-foreground shadow-sm w-full mx-5">
+                <div className="flex flex-col space-y-1.5 p-6">
+                  <h1 className="text-2xl font-semibold leading-none tracking-tight">
+                    {data.name}
+                  </h1>
+                  <p className="text-sm text-muted-foreground">
+                    ID: {data.id}
+                  </p>
+                  <p className="text-sm text-muted-foreground">
+                    Leader: {data.leader.name_latin}
+                  </p>
+                  <p className="text-sm text-muted-foreground">
+                    Point: {data.total_score}
+                  </p>
+                </div>
+                <div className="items-center p-6 pt-0 flex justify-between">
+                  <button className="px-4 py-2 text-center bg-[#014164] hover:bg-[#014190] text-white font-medium rounded-md text-sm">
+                    Evaluate
+                  </button>
+                  <button className="px-4 py-2 text-center bg-[#014164] hover:bg-[#014190] text-white font-medium rounded-md text-sm">
+                    Edit Evaluation
+                  </button>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );

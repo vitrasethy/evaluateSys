@@ -34,7 +34,7 @@ export default function ProjectSelector() {
   useEffect(() => {
     // Filter the data whenever 'type' changes
     const newFilteredData = data.filter(
-      (item) => item.type === type,
+      (item) => item.type === type
     );
     setFilteredData(newFilteredData);
   }, [type, data]); // Include 'data' in the dependency array
