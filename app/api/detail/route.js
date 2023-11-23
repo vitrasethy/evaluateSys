@@ -5,7 +5,7 @@ export async function GET() {
     const token = cookieStore.get("access_token");
     const projectId = cookies().get("project_id");
 
-    const res = await fetch(`https://admin.rupp.support/api/v1/events/project-shortlist-details/${projectId.value}`, {
+    const res = await fetch(`https://admin.rupp.support/api/v1/events/project-shortlist-committee-details/1`, {
         method: "GET",
         headers: {
             "Content-Type": "application/json",
