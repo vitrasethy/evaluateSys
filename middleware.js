@@ -6,10 +6,10 @@ export function middleware(request) {
     const hasCookie = cookiesList.has("isLogin");
 
     if (request.nextUrl.pathname.startsWith("/logout") && !hasCookie) {
-        return NextResponse.rewrite(new URL("/", request.url));
+        return NextResponse.rewrite(new URL("/login", request.url));
     } else if (request.nextUrl.pathname.startsWith("/logout")) {
         request.cookies.clear();
-        const response = NextResponse.rewrite(new URL("/", request.url));
+        const response = NextResponse.rewrite(new URL("/login", request.url));
         response.cookies.delete("access_token");
         response.cookies.delete("isLogin");
         return response;
@@ -20,14 +20,14 @@ export function middleware(request) {
     // }
 
     if ((request.nextUrl.pathname.startsWith("/events") || request.nextUrl.pathname.startsWith("/award")) && !hasCookie) {
-        return NextResponse.rewrite(new URL("/", request.url));
+        return NextResponse.rewrite(new URL("/login", request.url));
     }
 
     // if (request.nextUrl.pathname === "/" && !hasCookie) {
     //     return NextResponse.rewrite(new URL("/events", request.url));
     // }
 
-    if (request.nextUrl.pathname === "/" && hasCookie) {
+    if (request.nextUrl.pathname === "/login" && hasCookie) {
         return NextResponse.rewrite(new URL("/events", request.url));
     }
 }

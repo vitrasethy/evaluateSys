@@ -1,7 +1,7 @@
 import Image from "next/image";
 import LoginForm from "@/components/login/LoginForm";
 
-export default function Home() {
+export default function Page() {
 
   return (
     <main className="bg-[url('/stem.jpeg')] bg-cover h-screen">

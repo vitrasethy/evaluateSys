@@ -2,7 +2,7 @@
 
 import { useFormState } from "react-dom";
 import SubmitButton from "@/components/login/SubmitButton";
-import {action} from "@/app/action";
+import {action} from "@/components/login/action";
 
 const initialState = {
   message: null,
