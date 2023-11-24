@@ -24,8 +24,8 @@ export async function action(prevState, formData) {
 
     const resJson = await res.json();
 
-    cookies().set("access_token", resJson['access_token'], {secure: true, SameSite: Strict});
-    cookies().set("isLogin", "true", {secure: true, SameSite: Strict})
+    cookies().set("access_token", resJson['access_token'], {secure: true, SameSite: none});
+    cookies().set("isLogin", "true", {secure: true, SameSite: none})
 
     redirect("/events");
 }
