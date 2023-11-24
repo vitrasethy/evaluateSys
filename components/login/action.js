@@ -24,14 +24,8 @@ export async function action(prevState, formData) {
 
     const resJson = await res.json();
 
-    // try {
-    //     let response = NextResponse.next()
-    //     response.cookies.set('access_token', resJson['access_token'])
-    // }catch (e) {
-    //     throw new Error(e);
-    // }
-
     cookies().set("access_token", resJson['access_token']);
+    cookies().set("isLogin", "true")
 
     redirect("/events");
 }
