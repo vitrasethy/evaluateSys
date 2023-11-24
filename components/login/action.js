@@ -3,12 +3,12 @@
 import {cookies} from "next/headers";
 import {redirect} from "next/navigation";
 
-export function action(prevState, formData) {
+export async function action(prevState, formData) {
     const data = {
         username: formData.get("username"),
         password: formData.get("password"),
     };
-    const res = fetch("https://admin.rupp.support/api/v1/auth/login", {
+    const res = await fetch("https://admin.rupp.support/api/v1/auth/login", {
         method: "POST",
         cache: 'no-store',
         headers: {
@@ -22,10 +22,10 @@ export function action(prevState, formData) {
         return {message: 'Incorrect Username or Password. Please try again.'}
     }
 
-    const resJson =  res.json();
+    const resJson = await res.json();
 
-    cookies().set("access_token", resJson['access_token']);
-    cookies().set("isLogin", "true")
+    await cookies().set("access_token", resJson['access_token']);
+    await cookies().set("isLogin", "true")
 
     redirect("/events");
 }
