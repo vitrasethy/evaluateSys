@@ -3,7 +3,7 @@ import {cookies} from "next/headers";
 
 export function middleware(request) {
     const cookiesList = cookies();
-    const hasCookie = cookiesList.has("access_token");
+    const hasCookie = cookiesList.has("isLogin");
 
     if (request.nextUrl.pathname.startsWith("/logout") && !hasCookie) {
         return NextResponse.rewrite(new URL("/", request.url));
@@ -11,6 +11,7 @@ export function middleware(request) {
         request.cookies.clear();
         const response = NextResponse.rewrite(new URL("/", request.url));
         response.cookies.delete("access_token");
+        response.cookies.delete("isLogin");
         return response;
     }
 
