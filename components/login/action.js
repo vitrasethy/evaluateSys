@@ -34,9 +34,7 @@ export async function action(prevState, formData) {
     //     throw new Error(e);
     // }
 
-    cookies().set("access_token", resJson['access_token'], {
-        httpOnly: true,
-    });
+    cookies().set("access_token", resJson['access_token']);
 
     redirect("/events");
 }
