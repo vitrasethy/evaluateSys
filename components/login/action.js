@@ -27,5 +27,5 @@ export async function action(prevState, formData) {
     await cookies().set("access_token", resJson['access_token']);
     await cookies().set("isLogin", "true")
 
-    redirect("/events");
+    await redirect("/events");
 }
