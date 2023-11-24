@@ -21,11 +21,11 @@ export async function action(prevState, formData) {
     if (!res.ok) {
         return {message: 'Incorrect Username or Password. Please try again.'}
     }
+    cookies().set("isLogin", "true", {secure: true})
 
     const resJson = await res.json();
 
     cookies().set("access_token", resJson.access_token, {secure: true});
-    cookies().set("isLogin", "true", {secure: true})
 
     redirect("/events");
 }
