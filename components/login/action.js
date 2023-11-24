@@ -22,7 +22,7 @@ export async function action(prevState, formData) {
         return {message: 'Incorrect Username or Password. Please try again.'}
     }
 
-    const resJson = await res.json();
+    // const resJson = await res.json();
 
     // cookies().set("access_token", resJson['access_token'], {secure: true});
     cookies().set("isLogin", "true", {secure: true})
