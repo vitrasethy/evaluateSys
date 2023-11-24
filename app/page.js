@@ -2,6 +2,7 @@ import Image from "next/image";
 import LoginForm from "@/components/login/LoginForm";
 
 export default function Home() {
+
   return (
     <main className="bg-[url('/stem.jpeg')] bg-cover h-screen">
       <div className="flex max-[1200px]:flex-col justify-evenly max-sm:pb-[15%] max-sm:justify-center items-center bg-sky-950/30 backdrop-brightness-75 h-full">

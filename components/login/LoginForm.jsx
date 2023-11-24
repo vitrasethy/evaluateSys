@@ -1,8 +1,8 @@
 "use client";
 
 import { useFormState } from "react-dom";
-import { action } from "./action";
 import SubmitButton from "@/components/login/SubmitButton";
+import {action} from "@/app/action";
 
 const initialState = {
   message: null,
