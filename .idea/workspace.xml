@@ -5,10 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5082a22a-1ea5-483a-92b9-5cead6b21efc" name="Changes" comment="login">
-      <change afterPath="$PROJECT_DIR$/app/page.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/action.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/login/action.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/login/page.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/login/LoginForm.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/login/LoginForm.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/login/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/page.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/page.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/middleware.js" beforeDir="false" afterPath="$PROJECT_DIR$/middleware.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,9 +56,9 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app" />
       <recent name="$PROJECT_DIR$/app/login" />
       <recent name="$PROJECT_DIR$/components/login" />
-      <recent name="$PROJECT_DIR$/app" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -75,7 +74,7 @@
       <workItem from="1700739677226" duration="6717000" />
       <workItem from="1700785240183" duration="18214000" />
       <workItem from="1700826807413" duration="143000" />
-      <workItem from="1700826957653" duration="851000" />
+      <workItem from="1700826957653" duration="1223000" />
     </task>
     <task id="LOCAL-00001" summary="fix title">
       <option name="closed" value="true" />
@@ -181,7 +180,15 @@
       <option name="project" value="LOCAL" />
       <updated>1700827498152</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="login">
+      <option name="closed" value="true" />
+      <created>1700827949040</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1700827949040</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
