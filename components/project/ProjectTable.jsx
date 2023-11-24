@@ -14,6 +14,7 @@ import {
 } from "@/components/ui/dialog";
 import action from "@/components/project/action";
 import LoadingUI from "@/components/project/LoadingUI";
+import actionDetail from "@/components/project/actionDetail";
 
 export default function ProjectTable({ data_data, isLoading }) {
   const [data, setData] = useState([]);
@@ -119,7 +120,17 @@ export default function ProjectTable({ data_data, isLoading }) {
                     </button>
                   </form>
                 </td>
-                <td className="px-5 py-4  ">
+                <td className={isAdmin ? "" : "hidden"}>
+                  <form action={actionDetail}>
+                    <input
+                      type={"hidden"}
+                      name={"projectId"}
+                      value={row.project_id}
+                    />
+                    <button>Detail</button>
+                  </form>
+                </td>
+                <td className={`px-5 py-4 ${isAdmin ? "hidden" : ""}`}>
                   <Dialog>
                     <DialogTrigger asChild>
                       <Button variant="outline" className="text-amber-500">

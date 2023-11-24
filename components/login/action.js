@@ -27,6 +27,13 @@ export async function action(prevState, formData) {
 
     revalidatePath("/");
 
+    // try {
+    //     let response = NextResponse.next()
+    //     response.cookies.set('access_token', resJson['access_token'])
+    // }catch (e) {
+    //     throw new Error(e);
+    // }
+
     cookies().set("access_token", resJson['access_token'], {
         httpOnly: true,
     });
