@@ -1,7 +1,6 @@
 "use server";
 
 import {cookies} from "next/headers";
-import {revalidatePath} from "next/cache";
 import {redirect} from "next/navigation";
 
 export async function action(prevState, formData) {
@@ -24,8 +23,6 @@ export async function action(prevState, formData) {
     }
 
     const resJson = await res.json();
-
-    revalidatePath("/");
 
     // try {
     //     let response = NextResponse.next()
