@@ -17,7 +17,7 @@ export default async function SearchDepYear({ eventId }) {
     cookies().set("dept_id", departmentId);
     cookies().set("year_id", yearId);
 
-    redirect("/events/dept-year/projects");
+    redirect(`/events/${eventId}/projects`);
   }
 
   return (

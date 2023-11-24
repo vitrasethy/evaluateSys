@@ -61,7 +61,7 @@ export async function GET() {
 
       tempCommittee = {
         status: status,
-        total_score: 98,
+        total_score: e.project_total_score,
         committee: e.eve_project_committee,
       };
       combinedData = {

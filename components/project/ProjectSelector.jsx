@@ -14,6 +14,7 @@ export default function ProjectSelector() {
   const [data, setData] = useState([]);
   const [filteredData, setFilteredData] = useState([]);
   const [type, setType] = useState("Presentation");
+  const [isLoading, setLoading] = useState(true)
 
   useEffect(() => {
     // Simulate data fetching
@@ -22,6 +23,7 @@ export default function ProjectSelector() {
         const response = await fetch("/api");
         const result = await response.json();
         setData(result);
+        setLoading(false)
       } catch (error) {
         throw new Error(error);
       }
@@ -33,9 +35,7 @@ export default function ProjectSelector() {
 
   useEffect(() => {
     // Filter the data whenever 'type' changes
-    const newFilteredData = data.filter(
-      (item) => item.type === type
-    );
+    const newFilteredData = data.filter((item) => item.type === type);
     setFilteredData(newFilteredData);
   }, [type, data]); // Include 'data' in the dependency array
 
@@ -76,11 +76,12 @@ export default function ProjectSelector() {
       </div>
 
       <div className="">
-        <ProjectTable
-          data_data={filteredData}
-          projectType={type}
-          projectAmount={"amount"}
-        />
+          <ProjectTable
+            data_data={filteredData}
+            projectType={type}
+            projectAmount={"amount"}
+            isLoading={isLoading}
+          />
       </div>
     </div>
   );

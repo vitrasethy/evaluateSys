@@ -1,6 +1,7 @@
 "use client";
 import Image from "next/image";
 import * as React from "react";
+import { useEffect, useState } from "react";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -12,11 +13,9 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import action from "@/components/project/action";
-import {useEffect, useState} from "react";
+import LoadingUI from "@/components/project/LoadingUI";
 
-
-
-export default function ProjectTable({ data_data }) {
+export default function ProjectTable({ data_data, isLoading }) {
   const [data, setData] = useState([]);
 
   useEffect(() => {
@@ -35,7 +34,14 @@ export default function ProjectTable({ data_data }) {
     fetchData();
   }, []);
 
-  const isAdmin = data.is_admin
+  const isAdmin = data.is_admin;
+
+  if (isLoading)
+    return (
+      <div className={"flex justify-center mt-20"}>
+        <LoadingUI />
+      </div>
+    );
 
   return (
     <div className="">
@@ -64,23 +70,27 @@ export default function ProjectTable({ data_data }) {
           <tbody>
             {data_data.map((row, id) => (
               <tr key={row.no} className={`table-row rounded-xl`}>
-                <td className="px-5 py-4  ">{id+1}</td>
+                <td className="px-5 py-4  ">{id + 1}</td>
                 <td className="px-5 py-4  ">{row.id}</td>
                 <td className="px-5 py-4  ">{row.name}</td>
-                <td className="px-5 py-4  ">
-                  {row.leader.name_latin}
-                </td>
+                <td className="px-5 py-4  ">{row.leader.name_latin}</td>
                 <td className="px-5 py-4  ">{row.total_score}</td>
                 <td className="px-5 py-4">
                   <p
                     className={`p-1 border-2 rounded-lg w-fit ${
-                      (row.status) === 1 ? 'bg-green-200 border-2 border-green-600':''
+                      row.status === 1
+                        ? "bg-green-200 border-2 border-green-600"
+                        : ""
                     }
                     ${
-                      (row.status) === 0 ? 'bg-red-200 border-2 border-red-600':''
+                      row.status === 0
+                        ? "bg-red-200 border-2 border-red-600"
+                        : ""
                     }
                     ${
-                      (row.status) === 2 ? 'bg-yellow-200 border-2 border-yellow-600':''
+                      row.status === 2
+                        ? "bg-yellow-200 border-2 border-yellow-600"
+                        : ""
                     }`}
                   >
                     {row.status === 1 ? "Completed" : ""}
@@ -91,9 +101,22 @@ export default function ProjectTable({ data_data }) {
 
                 <td className="px-5 py-4  ">
                   <form action={action}>
-                    <input type={"hidden"} name={"projectId"} value={row.project_id}/>
-                    <button className={(row.status === 1 || isAdmin) ? "hidden" : ""}>Evaluate</button>
-                    <button formAction={action} className={(row.status === 0 || isAdmin) ? "hidden" : ""}>Edit Evaluate</button>
+                    <input
+                      type={"hidden"}
+                      name={"projectId"}
+                      value={row.project_id}
+                    />
+                    <button
+                      className={row.status === 1 || isAdmin ? "hidden" : ""}
+                    >
+                      Evaluate
+                    </button>
+                    <button
+                      formAction={action}
+                      className={row.status === 0 || isAdmin ? "hidden" : ""}
+                    >
+                      Edit Evaluate
+                    </button>
                   </form>
                 </td>
                 <td className="px-5 py-4  ">
@@ -125,7 +148,7 @@ export default function ProjectTable({ data_data }) {
                           {row.type}
                         </DialogDescription>
                         <DialogDescription>
-                        {row.committee.map((committee, index) => (
+                          {row.committee.map((committee, index) => (
                             <p key={committee.id} className="flex">
                               <p className="my-[3px] w-1/2">
                                 {index === 0 ? "Judge" : ""}
@@ -135,7 +158,7 @@ export default function ProjectTable({ data_data }) {
                             </p>
                           ))}
                         </DialogDescription>
-                        
+
                         <DialogDescription>
                           {row.member.map((members, index) => (
                             <p key={members.id} className="flex">
@@ -167,9 +190,7 @@ export default function ProjectTable({ data_data }) {
                   <h1 className="text-2xl font-semibold leading-none tracking-tight">
                     {data.name}
                   </h1>
-                  <p className="text-sm text-muted-foreground">
-                    ID: {data.id}
-                  </p>
+                  <p className="text-sm text-muted-foreground">ID: {data.id}</p>
                   <p className="text-sm text-muted-foreground">
                     Leader: {data.leader.name_latin}
                   </p>
