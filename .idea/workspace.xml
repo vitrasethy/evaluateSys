@@ -5,7 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5082a22a-1ea5-483a-92b9-5cead6b21efc" name="Changes" comment="login">
+      <change afterPath="$PROJECT_DIR$/app/api/login/route.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/events/page.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/events/page.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/login/LoginForm.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/login/LoginForm.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/login/action.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/login/action.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/next.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/next.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,7 +79,9 @@
       <workItem from="1700739677226" duration="6717000" />
       <workItem from="1700785240183" duration="18214000" />
       <workItem from="1700826807413" duration="143000" />
-      <workItem from="1700826957653" duration="6612000" />
+      <workItem from="1700826957653" duration="6829000" />
+      <workItem from="1700871794147" duration="4472000" />
+      <workItem from="1700911264680" duration="5779000" />
     </task>
     <task id="LOCAL-00001" summary="fix title">
       <option name="closed" value="true" />
@@ -250,7 +259,15 @@
       <option name="project" value="LOCAL" />
       <updated>1700833231030</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="login">
+      <option name="closed" value="true" />
+      <created>1700834385175</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1700834385175</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

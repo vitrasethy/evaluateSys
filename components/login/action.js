@@ -1,6 +1,6 @@
 "use server";
 
-import {cookies} from "next/headers";
+// import {cookies} from "next/headers";
 import {redirect} from "next/navigation";
 
 export async function action(prevState, formData) {
@@ -8,9 +8,9 @@ export async function action(prevState, formData) {
         username: formData.get("username"),
         password: formData.get("password"),
     };
-    const res = await fetch("https://admin.rupp.support/api/v1/auth/login", {
+    const res = await fetch("/api/login", {
         method: "POST",
-        cache: 'no-store',
+        // cache: 'no-store',
         headers: {
             "Content-Type": "application/json",
             Accept: "application/json",
@@ -21,11 +21,17 @@ export async function action(prevState, formData) {
     if (!res.ok) {
         return {message: 'Incorrect Username or Password. Please try again.'}
     }
-    cookies().set("isLogin", "true", {secure: process.env.NODE_ENV === 'production'})
-
-    const resJson = await res.json();
-
-    cookies().set("access_token", resJson.access_token, {secure: process.env.NODE_ENV === 'production'});
+    //
+    // const resJson = await res.json();
+    //
+    // cookies().set("isLogin", "true", {
+    //     secure: process.env.NODE_ENV === 'production',
+    //     httpOnly: true
+    // })
+    // cookies().set("access_token", resJson.access_token, {
+    //     secure: process.env.NODE_ENV === 'production',
+    //     httpOnly: true
+    // });
 
     redirect("/events");
 }
