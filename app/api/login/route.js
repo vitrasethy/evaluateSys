@@ -1,5 +1,4 @@
 import {cookies} from "next/headers";
-import {redirect} from "next/navigation";
 
 export async function POST(request) {
   const resFront = await request.json()
@@ -17,15 +16,28 @@ export async function POST(request) {
     body: JSON.stringify(data),
   });
   if (!res.ok) {
-    return Response.json({message: 'Incorrect Username or Password. Please try again.', status: 404})
+    return Response.json({
+      message: 'Incorrect Username or Password. Please try again.',
+      status: 404
+    })
   }
 
   const resJson = await res.json();
 
-  cookies().set('jwt', resJson.access_token, {
+  // const response = new NextResponse();
+
+  // response.cookies.set('access_token', resJson.access_token, {
+  //   secure: process.env.NODE_ENV === 'production',
+  //   httpOnly: true,
+  // })
+
+  await cookies().set('access_token', resJson.access_token, {
     secure: process.env.NODE_ENV === 'production',
     httpOnly: true,
   })
 
-  redirect("/events")
+  return Response.json({
+    message: '',
+    status: 200
+  })
 }

@@ -3,7 +3,7 @@ import {cookies} from "next/headers";
 
 export function middleware(request) {
     const cookiesList = cookies();
-    const hasCookie = cookiesList.has("jwt");
+    const hasCookie = cookiesList.has("access_token");
 
     if (request.nextUrl.pathname.startsWith("/logout") && !hasCookie) {
         return NextResponse.rewrite(new URL("/", request.url));

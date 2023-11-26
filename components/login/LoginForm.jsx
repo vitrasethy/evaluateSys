@@ -2,12 +2,15 @@
 
 import {useState} from "react";
 import {Loading, Submit} from "@/components/login/SubmitButton";
+import {useRouter} from 'next/navigation'
 
 export default function LoginForm() {
   const [username, setUsername] = useState("")
   const [password, setPassword] = useState("")
   const [isLoading, setIsLoading] = useState(false)
   const [messages, setMessages] = useState("")
+
+  const router = useRouter()
 
   const onUsernameChange = (e) => {
     setUsername(e.target.value)
@@ -31,7 +34,13 @@ export default function LoginForm() {
     };
     fetch("/api/login", requestOptions)
       .then(response => response.json())
-      .then(res => setMessages(res.message));
+      .then(res => {
+        if (res.status === 200) router.push("/events")
+        else {
+          setMessages(res.message)
+          setIsLoading(false)
+        }
+      });
   };
 
   return (
