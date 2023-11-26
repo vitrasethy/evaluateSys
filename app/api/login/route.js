@@ -24,7 +24,6 @@ export async function POST(request) {
   cookies().set('jwt', resJson.access_token, {
     secure: process.env.NODE_ENV === 'production',
     httpOnly: true,
-    sameSite: strict
   })
 
   return Response.json({message: ""})
