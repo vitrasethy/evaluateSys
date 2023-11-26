@@ -1,4 +1,5 @@
 import {cookies} from "next/headers";
+import {redirect} from "next/navigation";
 
 export async function POST(request) {
   const resFront = await request.json()
@@ -26,5 +27,5 @@ export async function POST(request) {
     httpOnly: true,
   })
 
-  return Response.json({message: "", status: 200})
+  redirect("/events")
 }

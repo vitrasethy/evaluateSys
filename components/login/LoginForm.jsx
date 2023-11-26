@@ -2,7 +2,6 @@
 
 import {useState} from "react";
 import {Loading, Submit} from "@/components/login/SubmitButton";
-import {redirect} from "next/navigation";
 
 export default function LoginForm() {
   const [username, setUsername] = useState("")
@@ -32,10 +31,7 @@ export default function LoginForm() {
     };
     fetch("/api/login", requestOptions)
       .then(response => response.json())
-      .then(res => {
-        if (res.status === 200) redirect("/events")
-        else setMessages(res.message)
-      });
+      .then(res => setMessages(res.message));
   };
 
   return (
