@@ -32,9 +32,10 @@ export default function LoginForm() {
     };
     fetch("/api/login", requestOptions)
       .then(response => response.json())
-      .then(res => setMessages(res.message));
-    if (messages === "")
-      redirect("/events")
+      .then(res => {
+        if (res.status === 200) redirect("/events")
+        else setMessages(res.message)
+      });
   };
 
   return (

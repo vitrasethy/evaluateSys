@@ -3,15 +3,14 @@ import {cookies} from "next/headers";
 
 export function middleware(request) {
     const cookiesList = cookies();
-    const hasCookie = cookiesList.has("isLogin");
+    const hasCookie = cookiesList.has("jwt");
 
     if (request.nextUrl.pathname.startsWith("/logout") && !hasCookie) {
         return NextResponse.rewrite(new URL("/", request.url));
     } else if (request.nextUrl.pathname.startsWith("/logout")) {
         request.cookies.clear();
         const response = NextResponse.rewrite(new URL("/", request.url));
-        response.cookies.delete("access_token");
-        response.cookies.delete("isLogin");
+        response.cookies.delete("jwt");
         return response;
     }
 

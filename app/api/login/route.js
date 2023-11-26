@@ -16,7 +16,7 @@ export async function POST(request) {
     body: JSON.stringify(data),
   });
   if (!res.ok) {
-    return Response.json({message: 'Incorrect Username or Password. Please try again.'})
+    return Response.json({message: 'Incorrect Username or Password. Please try again.', status: 404})
   }
 
   const resJson = await res.json();
@@ -26,5 +26,5 @@ export async function POST(request) {
     httpOnly: true,
   })
 
-  return Response.json({message: ""})
+  return Response.json({message: "", status: 200})
 }
