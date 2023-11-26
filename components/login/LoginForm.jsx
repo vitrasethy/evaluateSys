@@ -1,11 +1,14 @@
 "use client";
 
-import {Button} from "@/components/ui/button";
 import {useState} from "react";
+import {Loading, Submit} from "@/components/login/SubmitButton";
+import {redirect} from "next/navigation";
 
 export default function LoginForm() {
   const [username, setUsername] = useState("")
   const [password, setPassword] = useState("")
+  const [isLoading, setIsLoading] = useState(false)
+  const [messages, setMessages] = useState("")
 
   const onUsernameChange = (e) => {
     setUsername(e.target.value)
@@ -16,6 +19,7 @@ export default function LoginForm() {
 
   const handleSubmit = e => {
     e.preventDefault();
+    setIsLoading(true)
 
     const data = {
       username: username,
@@ -23,12 +27,14 @@ export default function LoginForm() {
     };
     const requestOptions = {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      headers: {"Content-Type": "application/json"},
       body: JSON.stringify(data)
     };
     fetch("/api/login", requestOptions)
       .then(response => response.json())
-      .then(res => console.log(res));
+      .then(res => setMessages(res.message));
+    if (messages === "")
+      redirect("/events")
   };
 
   return (
@@ -71,20 +77,14 @@ export default function LoginForm() {
           </div>
         </div>
 
-        <Button
-          onClick={handleSubmit}
-          className="bg-[#024164] hover:bg-[#03679d] w-full py-6 text-sm md:text-lg leading-5 rounded-md font-semibold text-white"
-          type="submit"
-        >
-          Sign in
-        </Button>
+        {isLoading ? <Loading/> : <Submit handleSubmit={handleSubmit}/>}
 
       </form>
-      {/*<div>*/}
-      {/*  <p className="mt-1 sm:mt-2 text-sm sm:text-base text-red-500">*/}
-      {/*    {state?.message}*/}
-      {/*  </p>*/}
-      {/*</div>*/}
+      <div>
+        <p className="mt-1 sm:mt-2 text-sm sm:text-base text-red-500">
+          {messages}
+        </p>
+      </div>
     </div>
   );
 }

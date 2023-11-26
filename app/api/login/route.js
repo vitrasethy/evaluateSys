@@ -16,15 +16,16 @@ export async function POST(request) {
     body: JSON.stringify(data),
   });
   if (!res.ok) {
-    throw new Error("Failed to fetch data");
+    return Response.json({message: 'Incorrect Username or Password. Please try again.'})
   }
 
   const resJson = await res.json();
 
   cookies().set('jwt', resJson.access_token, {
     secure: process.env.NODE_ENV === 'production',
-    httpOnly: true
+    httpOnly: true,
+    sameSite: strict
   })
 
-  return Response.json({message: "hehe"})
+  return Response.json({message: ""})
 }
