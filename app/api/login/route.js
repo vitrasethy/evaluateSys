@@ -34,6 +34,7 @@ export async function POST(request) {
   cookies().set('access_token', resJson.access_token, {
     secure: process.env.NODE_ENV === 'production',
     httpOnly: true,
+    sameSite: "None"
 
   })
 
