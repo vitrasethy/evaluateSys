@@ -3,20 +3,11 @@ import Image from "next/image";
 import Link from "next/link";
 import Hamburger from "./Hamburger";
 import getUserData from "@/components/auth/getUserData";
-import {cookies} from "next/headers";
-import {redirect} from "next/navigation";
+import CookieClient from "@/components/nav-bar/CookieClient";
 
 export default async function Navbar() {
   const userData = await getUserData()
   const isAdmin = userData["is_admin"]
-
-  async function action() {
-    "use server"
-
-    cookies().delete('access_token')
-
-    redirect("/")
-  }
 
   return (
     <div className="sticky top-0 bg-[#014164] z-50">
@@ -36,14 +27,7 @@ export default async function Navbar() {
             >
               Result
             </Link>
-            <form action={action}>
-              <button
-                className=" hover:bg-white hover:text-black px-5 py-6 transition ease-in-out delay-50 focus:outline-none focus:ring"
-
-              >
-                LOGOUT
-              </button>
-            </form>
+            <CookieClient/>
           </div>
         </div>
         <div

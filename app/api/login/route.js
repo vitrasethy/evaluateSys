@@ -35,8 +35,9 @@ export async function POST(request) {
     secure: process.env.NODE_ENV === 'production',
     httpOnly: true,
     sameSite: 'none'
-
   })
+
+  cookies().set('login', 'true')
 
   return Response.json({
     message: '',
