@@ -8,7 +8,7 @@ export async function POST(request) {
   }
   const res = await fetch("https://admin.rupp.support/api/v1/auth/login", {
     method: "POST",
-    // cache: 'no-store',
+    cache: 'no-store',
     headers: {
       "Content-Type": "application/json",
       Accept: "application/json",
@@ -31,7 +31,7 @@ export async function POST(request) {
   //   httpOnly: true,
   // })
 
-  await cookies().set('access_token', resJson.access_token, {
+  cookies().set('access_token', resJson.access_token, {
     secure: process.env.NODE_ENV === 'production',
     httpOnly: true,
 
