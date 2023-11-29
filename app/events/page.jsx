@@ -1,18 +1,27 @@
-// import Link from "next/link";
-// import getEvents from "@/components/event/getEvents";
-
 export default function Page() {
   // const data = await getEvents();
 
   return (
-    <main>
+    <main className={'flex flex-col justify-center items-center'}>
       <section className="h-[20vh] flex justify-center items-center mt-10 mb-10">
         <div className="text-center">
           <h1 className="text-4xl tracking-tight font-extrabold sm:text-5xl md:text-6xl">
-            List of all the events <br /> and their details
+            List of all the events <br/> and their details
           </h1>
         </div>
       </section>
+
+      <section className={'flex justify-center px-8 lg:w-1/2'}>
+        <a href="/events/1"
+           className="flex items-center lg:h-36 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100">
+          <div className="flex flex-col justify-between p-4 leading-normal">
+            <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Engineering Day 2023</h5>
+            <p className="mb-3 font-normal text-gray-700">Here are the biggest enterprise technology
+              acquisitions of 2021 so far, in reverse chronological order.</p>
+          </div>
+        </a>
+      </section>
+
 
       {/*<section className="flex flex-col justify-center items-center ">*/}
       {/*  {data.map((data) => (*/}

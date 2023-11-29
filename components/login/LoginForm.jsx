@@ -60,7 +60,7 @@ export default function LoginForm() {
               name="username"
               id="username"
               className="text-sm px-3 py-2 sm:py-3 bg-white border shadow-sm border-slate-300 placeholder-slate-400 disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 focus:outline-none focus:border-sky-600 focus:ring-sky-600 block w-full rounded-sm sm:text-sm focus:ring-1 invalid:border-pink-500 invalid:text-pink-600 focus:invalid:border-pink-500 focus:invalid:ring-pink-500 disabled:shadow-none"
-              placeholder="Enter your email"
+              placeholder="Enter your username"
             />
           </div>
         </div>
@@ -82,11 +82,11 @@ export default function LoginForm() {
             />
           </div>
         </div>
-
-        {isLoading ? <Loading/> : <Submit handleSubmit={handleSubmit}/>}
-
+        <div className={"mt-4"}>
+          {isLoading ? <Loading/> : <Submit handleSubmit={handleSubmit}/>}
+        </div>
       </form>
-      <div>
+      <div className={"h-3 mb-6"}>
         <p className="mt-1 sm:mt-2 text-sm sm:text-base text-red-500">
           {messages}
         </p>

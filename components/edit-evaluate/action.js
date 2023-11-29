@@ -25,12 +25,10 @@ export async function action(fetchData, formData) {
     ),
   };
 
-  console.log(data)
-
   const res = await fetch(
-    `https://admin.rupp.support/api/v1/events/${eventId.value}/project-scores`,
+    `https://admin.rupp.support/api/v1/events/${eventId.value}/project_shortlist/${projectId.value}/committees/${userDetail.eve_committee_id}`,
     {
-      method: "POST",
+      method: "PUT",
       cache: "no-store",
       headers: {
         "Content-Type": "application/json",
@@ -39,11 +37,15 @@ export async function action(fetchData, formData) {
       body: JSON.stringify(data),
     },
   );
+  console.log(JSON.stringify(data))
+
 
   if (!res.ok) {
+    console.log(res)
     throw new Error("hehe");
   }
 
+
   revalidatePath("/");
-  redirect(`/events/${eventId.value}/projects`);
+  redirect(`/`);
 }

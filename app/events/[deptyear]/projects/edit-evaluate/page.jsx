@@ -1,5 +1,5 @@
 import React from "react";
-import EvaluateForm from "@/components/evaluate/EvaluateForm";
+import EvaluateForm from "@/components/edit-evaluate/EvaluateForm";
 
 export default async function Page() {
 

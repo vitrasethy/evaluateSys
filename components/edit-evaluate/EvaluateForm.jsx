@@ -1,8 +1,9 @@
 import Image from "next/image";
 import React from "react";
 import getEvaluateData from "@/components/evaluate/getEvaluateData";
-import {action} from "@/components/evaluate/action";
-import SubmitButton from "@/components/evaluate/SubmitButton";
+import {action} from "@/components/edit-evaluate/action";
+import SubmitButton from "@/components/edit-evaluate/SubmitButton";
+import getScore from "@/components/edit-evaluate/getScore";
 
 function isOneDigit({ sco }) {
   return sco < 10;
@@ -10,6 +11,29 @@ function isOneDigit({ sco }) {
 
 export default async function EvaluateForm() {
   const data = await getEvaluateData()
+  const points = await getScore()
+
+  const combinedCriterias = [];
+
+  points.committees.forEach(committee => {
+    committee.projects.forEach(project => {
+      project.categories.forEach(category => {
+        combinedCriterias.push(...category.criterias.map(criteria => ({
+          category_id: category.id,
+          category_name: category.name,
+          criteria_id: criteria.id,
+          criteria_name: criteria.name,
+          score: criteria.score,
+          rubric: criteria.rubric
+        })));
+      });
+    });
+  });
+
+  const isCheck = (id, score) => {
+    const result = combinedCriterias.find(item => item.criteria_id === id);
+    return result.score === score;
+  }
 
   const allCriteria = data.category.flatMap((category) => category.criteria);
 
@@ -86,6 +110,7 @@ export default async function EvaluateForm() {
                 {cri.score.map((sco) => (
                   <li key={sco}>
                     <input
+                      defaultChecked={isCheck(cri.id, sco)}
                       type="radio"
                       id={sco.toString() + cri.name}
                       name={cri.name}

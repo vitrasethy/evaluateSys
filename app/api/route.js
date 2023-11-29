@@ -1,4 +1,4 @@
-import { cookies } from "next/headers";
+import {cookies} from "next/headers";
 import getUserData from "@/components/auth/getUserData";
 
 export async function GET() {
@@ -59,10 +59,23 @@ export async function GET() {
       else if (temp.every((element) => element === false)) status = 0;
       else status = 2;
 
+      let isCommittee = false
+      if (userData.hasOwnProperty('eve_committee_id')) {
+        if (e.eve_project_committee.some(
+          (committeeMember) => committeeMember.id === userData.eve_committee_id)) {
+          isCommittee = true
+          if (
+            e.eve_project_committee.find((p) => p.id === userData.eve_committee_id)
+              .is_evaluated && status === 2
+          ) status = 3
+        }
+      }
+
       tempCommittee = {
         status: status,
-        total_score: e.project_total_score,
+        total_score: e.project_total_score.toFixed(2),
         committee: e.eve_project_committee,
+        is_committee: isCommittee
       };
       combinedData = {
         ...tempData,
@@ -83,6 +96,7 @@ export async function GET() {
       const tempData = {
         no: i,
         id: e.eve_project_code,
+        is_committee: true,
         project_id: e.eve_shortlist_id,
         name: e.eve_project_topic,
         type: e.eve_project_type,
@@ -107,7 +121,7 @@ export async function GET() {
         status: status,
         total_score: e.eve_project_committee.find(
           (p) => p.id === userData.eve_committee_id,
-        ).project_score,
+        ).project_score.toFixed(2),
         committee: [],
       };
       combinedData = {
