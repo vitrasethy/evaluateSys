@@ -32,7 +32,7 @@ export async function POST(request) {
   // })
 
   await cookies().set('access_token', resJson.access_token, {
-    // secure: process.env.NODE_ENV === 'production',
+    secure: process.env.NODE_ENV === 'production',
     httpOnly: true,
 
   })
