@@ -46,7 +46,7 @@ export default function ProjectTable({}) {
       </h1>
 
       {data?.map((data) => (
-        <p key={data.no} className="px-10 py-5 text-lg border-2 w-[60%] ">
+        <p key={data.no} className="px-10 py-5 text-lg border-2 w-[90%] sm:w-[70%] md:w-[60%] duration-500">
           <div className="bg-gray-200 p-2 rounded-md mt-2">
             <p className="text-sm text-gray-500 uppercase">Project Name</p>
             <p>{data.eve_project_topic}</p>
