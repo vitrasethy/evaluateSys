@@ -1,13 +1,14 @@
 'use client'
-import React, { useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import html2canvas from 'html2canvas';
 import jsPDF from "jspdf";
 import '../pdf/fonts/fonts.css';
 function HtmlToImageToPdf() {
   const htmlRef = useRef(null);
-
+  const [isDownloading, setIsDownloading] = useState(false);
+  const [isDownloaded, setIsDownloaded] = useState(false);
   const handleDownload = () => {
-    // Check if the ref is currently pointing to an HTMLElement
+    setIsDownloading(true);
     if (htmlRef.current) {
       // convert the html to a png image
       html2canvas(htmlRef.current).then((canvas) => {
@@ -27,15 +28,22 @@ function HtmlToImageToPdf() {
 
         // download the pdf
         pdf.save("download.pdf");
+        setIsDownloading(false);
+        setIsDownloaded(true);
       });
     }
   };
-
+  useEffect(() => {
+    if (isDownloaded) {
+      setTimeout(() => setIsDownloaded(false), 2000);
+    }
+  }, [isDownloaded]);
   return (
     <div>
       <div ref={htmlRef}>
         <section className="bg-[url('/ctf.png')] bg-contain w-[297mm] h-[210mm] bg-no-repeat">
-          <div className="flex flex-col justify-center items-center h-full py-[205px]">
+          <div className="flex flex-col justify-center items-center h-full">
+          <div className="pt-[5rem]">
             <div className="grid grid-cols-2 gap-[122px]">
               <div className="flex flex-col justify-center text-center items-center font-['Times New Roman'] gap-1 w-[391px] h-[300px]">
                 <p className="font-extrabold text-[17.5pt] pt-px font-['HelveticaNowMTTextRegular']">6th ENGINEERING DAY</p>
@@ -64,14 +72,18 @@ function HtmlToImageToPdf() {
                 </div>
               </div>
             </div>
-            <div className="pb-12 mt-1">
+            <div className="text-center pb-12 mt-1">
               <p className="font-[KhmerOSSiemreap] text-[11.54pt]">រាជធានីភ្នំពេញ ថ្ងៃទី២១ ខែវិច្ឆិកា ឆ្នាំ២០២៣</p>
               <p className="font-['serif'] text-[13.02pt] mb-2">Phnom Penh, 21 November 2023</p>
             </div>
           </div>
+            <div className="text-start w-full px-[7.5rem] pt-[5rem] text-base text-gray-500"> <p>IG801</p></div>
+          </div>
         </section>
       </div>
-      <button onClick={handleDownload}>Download PDF</button>
+      <div className="flex justify-end w-[297mm]">
+      <button onClick={handleDownload} className="mt-4 text-white bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl hover:scale-105 focus:ring-4 focus:outline-none focus:ring-blue-30 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">{isDownloading ? 'Downloading...' : isDownloaded ? 'Download Complete!' : 'Download PDF'}</button>
+      </div>
     </div>
   );
 }
