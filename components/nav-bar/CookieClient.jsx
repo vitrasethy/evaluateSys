@@ -9,8 +9,6 @@ export default function CookieClient() {
 
   const handleClick = () => {
     deleteCookie('login')
-
-
     router.push('/')
   }
 

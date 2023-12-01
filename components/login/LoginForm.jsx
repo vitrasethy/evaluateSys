@@ -35,7 +35,10 @@ export default function LoginForm() {
     fetch("/api/login", requestOptions)
       .then(response => response.json())
       .then(res => {
-        if (res.status === 200) router.push("/events")
+        if (res.status === 200){
+          sessionStorage.setItem("login", "true")
+          router.push("/events")
+        }
         else {
           setMessages(res.message)
           setIsLoading(false)

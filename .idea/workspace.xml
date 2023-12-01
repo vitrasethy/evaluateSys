@@ -5,10 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5082a22a-1ea5-483a-92b9-5cead6b21efc" name="Changes" comment="fix fix">
-      <change afterPath="$PROJECT_DIR$/components/nav-bar/CookieClient.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/auth/session.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/api/login/route.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/api/login/route.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/nav-bar/NavBar.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/nav-bar/NavBar.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/back/BackButton.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/back/BackButton.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/login/LoginForm.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/login/LoginForm.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/nav-bar/CookieClient.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/nav-bar/CookieClient.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/middleware.js" beforeDir="false" afterPath="$PROJECT_DIR$/middleware.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -34,6 +35,7 @@
     <option name="autoscrollToSource" value="true" />
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="openDirectoriesWithSingleClick" value="true" />
+    <option name="showExcludedFiles" value="false" />
     <option name="showLibraryContents" value="true" />
     <option name="showScratchesAndConsoles" value="false" />
   </component>
@@ -44,7 +46,7 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/sethyvitra/Documents/Stem Project/evaluateSys/components/edit-evaluate&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/sethyvitra/Documents/Stem Project/evaluateSys/app/login&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -57,6 +59,7 @@
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/login" />
       <recent name="$PROJECT_DIR$/components/edit-evaluate" />
       <recent name="$PROJECT_DIR$/app/events/[deptyear]/projects/edit-evaluate" />
     </key>
@@ -85,7 +88,8 @@
       <workItem from="1700956912940" duration="26248000" />
       <workItem from="1701170561559" duration="6314000" />
       <workItem from="1701216757624" duration="19299000" />
-      <workItem from="1701254643879" duration="10527000" />
+      <workItem from="1701254643879" duration="11285000" />
+      <workItem from="1701393023123" duration="10853000" />
     </task>
     <task id="LOCAL-00001" summary="fix title">
       <option name="closed" value="true" />
@@ -431,11 +435,30 @@
       <option name="project" value="LOCAL" />
       <updated>1701263646607</updated>
     </task>
-    <option name="localTasksCounter" value="44" />
+    <task id="LOCAL-00044" summary="fix fix">
+      <option name="closed" value="true" />
+      <created>1701265658733</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1701265658734</updated>
+    </task>
+    <option name="localTasksCounter" value="45" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
