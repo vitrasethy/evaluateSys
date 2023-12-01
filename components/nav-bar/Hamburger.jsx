@@ -30,7 +30,7 @@ export default function Hamburger({ isAdmin }) {
             <p className="text-white text-2xl font-semibold mb-6">Menu</p>
             <hr />
             <a
-              href=""
+              href={"/award"}
               className={`${
                 isAdmin ? "" : "hidden"
               } block text-center bg-[#014164] border-white border-2 hover:bg-[#014190] text-white focus:ring-blue-300 font-medium text-sm py-2.5 mr-2 mt-8 mb-2 focus:outline-none`}
