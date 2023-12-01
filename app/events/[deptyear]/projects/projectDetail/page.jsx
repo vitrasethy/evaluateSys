@@ -42,7 +42,7 @@ export default function ProjectTable({}) {
 
   return (
     <div className=" flex flex-col justify-center items-center">
-      <h1 className="text-center font-extrabold text-5xl my-10">
+      <h1 className="text-center font-extrabold text-4xl md:text-5xl px-5 my-10">
         Projects Detail
       </h1>
       {data?.map((data) => (
