@@ -60,10 +60,10 @@ export default function Award() {
 
         <div className="text-center h-[85vh] flex flex-col justify-center items-center">
           <h1 className="text-4xl tracking-tight font-extrabold font-['Georgia'] uppercase sm:text-5xl md:text-[10rem] bg-gradient-to-r from-[#3b7cc1] to-[#9ae2ff] inline-block text-transparent bg-clip-text drop-shadow-[7px_5px_rgba(205,245,253,0.2)]">
-            Engineering's Day
+            Engineering&apos;s Day
           </h1>
           <p className="max-w-4xl mx-auto text-6xl mt-8 text-white leading-snug">
-            Award of Engineering's Day 2023
+            Award of Engineering&apos;s Day 2023
           </p>
           <p className="max-w-4xl mx-auto text-5xl mt-8 text-white">
             Congratulation to the winners...
@@ -90,7 +90,7 @@ export default function Award() {
                 height={600}
                 className=""
               />
-            <h1 className="text-7xl font-semibold">Engineering's Day 2023</h1>
+            <h1 className="text-7xl font-semibold">Engineering&apos;s Day 2023</h1>
           </div>
           <div className="w-[85%] h-[65%] bg-[url('/reward3.jpeg')] bg-no-repeat bg-cover border-2 border-gray-500">
             <div className="flex flex-col justify-center h-full rounded-md bg-sky-950/30 backdrop-brightness-[.6] w-full px-20">
