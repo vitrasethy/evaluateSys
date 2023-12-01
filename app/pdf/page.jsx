@@ -2,8 +2,6 @@
 import React, { useRef } from "react";
 import html2canvas from 'html2canvas';
 import jsPDF from "jspdf";
-import Image from "next/image";
-import q1 from '../../public/1q.svg'
 import '../pdf/fonts/fonts.css';
 function HtmlToImageToPdf() {
   const htmlRef = useRef(null);
