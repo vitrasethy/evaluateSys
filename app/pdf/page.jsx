@@ -77,7 +77,7 @@ function HtmlToImageToPdf() {
               <p className="font-['serif'] text-[13.02pt] mb-2">Phnom Penh, 21 November 2023</p>
             </div>
           </div>
-            <div className="text-start w-full px-[7.5rem] pt-[5rem] text-base text-gray-500"> <p>IG801</p></div>
+            <div className="text-start w-full px-[7.5rem] pt-[5rem] text-xs text-gray-400"> <p>IG801</p></div>
           </div>
         </section>
       </div>
