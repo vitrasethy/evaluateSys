@@ -2,6 +2,83 @@
 import Image from "next/image";
 import "../award/page.css";
 import { useEffect, useState, useRef } from "react";
+const award=[
+      {
+        id: 1,
+        department_name: 'Information Technology',
+        year: '3',
+        project : [
+          {
+            id: 1,
+            rank: 1,
+            project_id: '003',
+            project_name: 'GASTROMOD: AN INTERACTIVE TOOL FOR 3D GASTROPOD MODELING'
+          },
+          {
+            id: 2,
+            rank:2,
+            project_id: '006',
+            project_name: 'ASEAN FACTORI 4.0 PROJECT ASEAN FACTORI 4.0 PROJECT'
+          },
+          {
+            id: 3,
+            rank:3,
+            project_id: '007',
+            project_name: 'A NEW MODEL FOR SIMULATING AND EVALUATING CONGESTION CAUSE AT SIGNALIZED INTERSECTION'
+          }
+        ]
+      },
+      {
+        id: 2,
+        department_name: 'Bio Engineering Biotechnology',
+        year: '2',
+        project : [
+          {
+            id: 4,
+            rank: 1,
+            project_id: '009',
+            project_name: 'WATERMELON VARIETY IMPROVEMENT THROUGH CONVENTIONAL BREEDING AND TISSUE CULTURE'
+          },
+          {
+            id: 5,
+            rank:2,
+            project_id: '008',
+            project_name: 'DEVELOPMENT OF PROBIOTIC FERMENTED VEGETABLES IN CAMBODIA AND THEIR EFFECT ON IMMUNUE SYSTEM IN VITRO'
+          },
+          {
+            id: 6,
+            rank:3,
+            project_id: '0032',
+            project_name: 'EXCITING SEMINAR ANNOUNCEMENT'
+          }
+        ]
+      },
+      {
+        id: 3,
+        department_name: 'Bachelor Food Technology And Engineering Degree',
+        year: '1',
+        project : [
+          {
+            id: 7,
+            rank: 1,
+            project_id: '002',
+            project_name: '21ST CENTURY SKILLS (MOST REQUIRED SKILLS BY EMPLOYERS)'
+          },
+          {
+            id: 8,
+            rank:2,
+            project_id: 'ITEG8',
+            project_name: 'GUIDANCE OF TEACHERS AND THE ORGANIZATION OF FE BUSINESS CLUB'
+          },
+          {
+            id: 9,
+            rank:3,
+            project_id: 'ITG08',
+            project_name: 'E-Library'
+          }
+        ]
+      },
+    ]
 
 export default function Award() {
   // eslint-disable-next-line react-hooks/rules-of-hooks
@@ -11,6 +88,7 @@ export default function Award() {
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const [numParticles, setNumParticles] = useState(30);
   // eslint-disable-next-line react-hooks/rules-of-hooks
+  const [rank, setRank] = useState(false);
   let enterCount = useRef(0);
 
   const particles = [];
@@ -34,7 +112,7 @@ export default function Award() {
         enterCount.current++;
         if (enterCount.current === 1) {
           window.scroll({
-            top: document.body.offsetHeight,
+            top: innerHeight*2,
             left: 0,
             behavior: 'smooth',
           });
@@ -54,7 +132,8 @@ export default function Award() {
 
   return (
     <main>
-      <div className="bg-[#070707]">
+    {award.map((data) =>(
+      <div key={data.id} className="bg-[#070707]">
         <section className="first-screen">
           <div id="particle-container">{particles}</div>
 
@@ -96,18 +175,19 @@ export default function Award() {
               <div className="flex flex-col justify-center h-full rounded-md bg-sky-950/30 backdrop-brightness-[.6] w-full px-20">
                 <div className="text-white text-center mb-12">
                   <h3 className="text-7xl font-medium">Leader Board</h3>
-                  <h2 className="mt-8 mb-8 text-5xl">Department : Information Technology Engineering</h2>
-                  <h2 className="text-5xl">Year: 3</h2>
+                  <h2 className="mt-8 mb-8 text-5xl">Department : {data.department_name}</h2>
+                  <h2 className="text-5xl">Year: {data.year}</h2>
                 </div>
 
+                <div>
                 <div className="relative w-auto">
                   <div className="flex bg-gradient-to-r from-[#cc9910] to-[#fcf97c] shadow-lg border-1 py-6 px-[4rem] rounded-xl h-[11rem]">
                     <div className="flex gap-16 text-4xl items-center">
-                      <p>1st</p>
+                      <p>{data.project[0].rank}st</p>
                       {isLoading2 && (
                         <div className="flex gap-16 items-center">
-                          <p className="w-[102.4rem] leading-snug">GASTROMOD: AN INTERACTIVE TOOL FOR 3D GASTROPOD MODELING</p>
-                          <p>003</p>
+                          <p className="w-[102.4rem] leading-snug">{data.project[0].project_name}</p>
+                          <p>{data.project[0].project_id}</p>
                         </div>
                       )}
                     </div>
@@ -124,11 +204,11 @@ export default function Award() {
                 <div className="relative mt-8">
                   <div className="flex bg-gradient-to-r from-[#C0C0C0] to-[#e9e9eb] shadow-lg border-1 py-6 px-[4rem] rounded-xl h-[11rem]">
                     <div className="flex gap-16 text-4xl items-center">
-                      <p>2nd</p>
+                      <p>{data.project[1].rank}nd</p>
                       {isLoading && (
                         <div className="flex gap-16 items-center">
-                          <p className="w-[101.4rem] leading-snug">ASEAN FACTORI 4.0 PROJECT ASEAN FACTORI 4.0 PROJECT</p>
-                          <p>003</p>
+                          <p className="w-[101.4rem] leading-snug">{data.project[1].project_name}</p>
+                          <p>{data.project[1].project_id}</p>
                         </div>
                       )}
                     </div>
@@ -145,11 +225,11 @@ export default function Award() {
                 <div className="relative mt-8">
                   <div className="flex bg-gradient-to-r from-[#ca6533] to-[#F0C9BA] shadow-lg border-1 py-6 px-[4rem] rounded-xl h-[11rem]">
                     <div className="flex gap-16 text-4xl items-center w-full">
-                      <p>3rd</p>
+                      <p> {data.project[2].rank}rd</p>
                       {isLoading2 && (
                         <div className="flex gap-16 items-center">
-                          <p className="w-[102rem] leading-snug">A NEW MODEL FOR SIMULATING AND EVALUATING CONGESTION CAUSE AT SIGNALIZED INTERSECTION</p>
-                          <p>003</p>
+                          <p className="w-[102rem] leading-snug">{data.project[2].project_name}</p>
+                          <p>{data.project[2].project_id}</p>
                         </div>
                       )}
                     </div>
@@ -162,6 +242,7 @@ export default function Award() {
                     className="absolute top-[-10px] left-[-25px] rotate-12"
                   />
                 </div>
+                </div>
 
                 <p className="text-center text-3xl mt-14 text-white">Royal University of Phnom Penh || Faculty of Engineering</p>
               </div>
@@ -170,6 +251,7 @@ export default function Award() {
         </section>
 
       </div>
+    ))}
     </main>
   );
 }
