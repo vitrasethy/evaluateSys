@@ -82,14 +82,14 @@ const award=[
 
 export default function Award() {
   // eslint-disable-next-line react-hooks/rules-of-hooks
-  const [isLoading, setIsLoading] = useState(false);
+  const [result1, setResult1] = useState(false);
   // eslint-disable-next-line react-hooks/rules-of-hooks
-  const [isLoading2, setIsLoading2] = useState(false);
+  const [result2, setResult2] = useState(false);
   // eslint-disable-next-line react-hooks/rules-of-hooks
+  const [result3, setResult3] = useState(false);
+
   const [numParticles, setNumParticles] = useState(30);
   // eslint-disable-next-line react-hooks/rules-of-hooks
-  const [rank, setRank] = useState(false);
-  let enterCount = useRef(0);
 
   const particles = [];
   for (let i = 0; i < numParticles; i++) {
@@ -108,27 +108,29 @@ export default function Award() {
   // eslint-disable-next-line react-hooks/rules-of-hooks
   useEffect(() => {
     function handleKeyDown(event) {
-      if (event.key === "Enter") {
-        enterCount.current++;
-        if (enterCount.current === 1) {
+      if (event.key === "Enter") { 
           window.scroll({
-            top: innerHeight*2,
+            top: 1000,
             left: 0,
             behavior: 'smooth',
           });
         }
-        if (enterCount.current === 2) {
-          setIsLoading(true);
+      if (event.key === '1')
+{
+          setResult1(true);
+}
+      if (event.key === '2') {
+          setResult2(true);
         }
-        if (enterCount.current === 3) {
-          setIsLoading2(true);
+        if(event.key === '3') {
+          setResult3(true);
         }
-      }
+      
     }
 
     document.addEventListener("keydown", handleKeyDown);
     return () => document.removeEventListener("keydown", handleKeyDown);
-  }, [isLoading]);
+  }, [result1]);
 
   return (
     <main>
@@ -184,7 +186,7 @@ export default function Award() {
                   <div className="flex bg-gradient-to-r from-[#cc9910] to-[#fcf97c] shadow-lg border-1 py-6 px-[4rem] rounded-xl h-[11rem]">
                     <div className="flex gap-16 text-4xl items-center">
                       <p>{data.project[0].rank}st</p>
-                      {isLoading2 && (
+                      {result1 && (
                         <div className="flex gap-16 items-center">
                           <p className="w-[102.4rem] leading-snug">{data.project[0].project_name}</p>
                           <p>{data.project[0].project_id}</p>
@@ -205,7 +207,7 @@ export default function Award() {
                   <div className="flex bg-gradient-to-r from-[#C0C0C0] to-[#e9e9eb] shadow-lg border-1 py-6 px-[4rem] rounded-xl h-[11rem]">
                     <div className="flex gap-16 text-4xl items-center">
                       <p>{data.project[1].rank}nd</p>
-                      {isLoading && (
+                      {result2 && (
                         <div className="flex gap-16 items-center">
                           <p className="w-[101.4rem] leading-snug">{data.project[1].project_name}</p>
                           <p>{data.project[1].project_id}</p>
@@ -226,7 +228,7 @@ export default function Award() {
                   <div className="flex bg-gradient-to-r from-[#ca6533] to-[#F0C9BA] shadow-lg border-1 py-6 px-[4rem] rounded-xl h-[11rem]">
                     <div className="flex gap-16 text-4xl items-center w-full">
                       <p> {data.project[2].rank}rd</p>
-                      {isLoading2 && (
+                      {result3 && (
                         <div className="flex gap-16 items-center">
                           <p className="w-[102rem] leading-snug">{data.project[2].project_name}</p>
                           <p>{data.project[2].project_id}</p>
