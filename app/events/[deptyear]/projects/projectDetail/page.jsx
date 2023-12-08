@@ -73,6 +73,11 @@ export default function ProjectTable({}) {
               </p>
             ))}
           </div>
+          <div className="bg-gray-200 p-2 rounded-md mt-2">
+            <p className="text-sm text-gray-500 uppercase">Total Score</p>
+            <p>{10}</p>
+          </div>
+          
 
           <div className="bg-gray-200 p-2 rounded-md mt-2">
             {data.eve_project_committee.map((committee, index) => (

@@ -149,6 +149,12 @@ export default async function EvaluateForm() {
           />
         </div>
       </label>
+      <div className="flex justify-around items-center border-2 border-sky-700 py-4 px-6 bg-[#014164] text-white rounded-md">
+        <h4 className="text-lg font-bold w-1/2 p-2.5">TOTAL SCORE</h4>
+        <h4 className="text-lg font-bold text-center w-1/2">
+          {10}
+        </h4>
+      </div>
       <div className="flex justify-end">
         <SubmitButton />
       </div>
