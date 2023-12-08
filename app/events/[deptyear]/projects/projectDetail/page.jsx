@@ -80,8 +80,10 @@ export default function ProjectTable({}) {
 
           <div className="bg-gray-200 p-2 rounded-md mt-2">
             {data.eve_project_committee.map((committee, index) => (
-              committee.project_score !== 0 && (
-              <div key={committee.id} onClick={() => handleClick(committee.id)}>
+     
+              <div  key={committee.id} 
+              onClick={committee.project_score !== 0 ? () => handleClick(committee.id) : null}
+              style={committee.project_score === 0 ? { pointerEvents: "none" } : {}}>
                 <div className="text-sm text-gray-500 uppercase">
                   {index === 0 ? "Judge" : ""}
                 </div>
@@ -131,7 +133,7 @@ export default function ProjectTable({}) {
                   </div>
                 </div>
               </div>
-            )))}
+            ))}
           </div>
         </div>
       ))}
